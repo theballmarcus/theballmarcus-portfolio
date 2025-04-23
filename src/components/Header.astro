@@ -1,0 +1,84 @@
+---
+// Tailwind preflight
+import '../styles/global.css';
+---
+<header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50">
+    <nav class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-6">
+        <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">Marcus Ihme | TheBallMarcus</h1>
+        <!-- Navigation links (hidden on very small screens; adjust as needed) -->
+        <ul class="hidden md:flex space-x-4 text-sm">
+          <li>
+            <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">Projects</a>
+          </li>
+          <li>
+            <a href="/about" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">About</a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Social links -->
+        <a href="https://github.com/theballmarcus" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+          GitHub
+        </a>
+        <span class="text-gray-400 dark:text-gray-500">|</span>
+        <a href="https://www.linkedin.com/in/marcus-ihme/" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+          LinkedIn
+        </a>
+        <!-- Dark mode toggle -->
+        <button id="theme-toggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
+            <svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon lucide-moon w-6 h-6 hidden dark:block">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+            <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon lucide-moon w-6 h-6 block dark:hidden">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+  
+  <script>
+    function init() {
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (!themeToggleBtn) {
+            console.error('Theme toggle button not found');
+            return
+        }
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (!themeToggleLightIcon) {
+            console.error('Light icon not found');
+            return;
+        }
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (!themeToggleDarkIcon) {
+            console.error('Dark icon not found');
+            return;
+        }
+    
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            // themeToggleDarkIcon.classList.remove('hidden');
+        } else {
+            // themeToggleLightIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            // themeToggleLightIcon.classList.toggle('hidden');
+            // themeToggleDarkIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+
+            }
+        });
+    }
+    init();
+    
+  </script>
+  

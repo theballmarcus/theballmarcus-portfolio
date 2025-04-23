@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheBallMarcus | Portfolio</title>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-sans">
+    <Header />
+
+    <main class="max-w-4xl mx-auto px-4 py-10">
+      <section class="mb-10 text-center">
+        <h1 class="text-4xl font-bold mb-2">Hi, I'm Marcus Ihme 👋</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+			5+ years of experience as a full-stack developer with a strong focus on cybersecurity. Deep expertise in secure systems design, threat modeling, and writing robust code in Go, C++, Python, and JavaScript.        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          <ProjectCard 
+            title="Real-time Analytics Pipeline"
+            description="Built a system to ingest and process large volumes of event data for internal analytics."
+            tech="Python, Kafka, PostgreSQL"
+          />
+          <ProjectCard 
+            title="Custom CMS"
+            description="Developed a content platform with role-based access, WYSIWYG editing, and version control."
+            tech="Node.js, MongoDB, React"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
