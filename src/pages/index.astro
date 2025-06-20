@@ -7,12 +7,12 @@ import ProjectCard from '../components/ProjectCard.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TheBallMarcus | Portfolio</title>
+    <title>Marcus Ihme | Portfolio</title>
   </head>
   <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-sans">
     <Header />
 
-    <main class="max-w-4xl mx-auto px-4 py-10">
+    <main class="max-w-6xl mx-auto px-4 py-10">
       <section class="mb-10 text-center">
         <h1 class="text-4xl font-bold mb-2">Hi, I'm Marcus Ihme 👋</h1>
         <p class="text-lg text-gray-600 dark:text-gray-300">
@@ -23,15 +23,18 @@ import ProjectCard from '../components/ProjectCard.astro';
         <h2 class="text-2xl font-semibold mb-4">Projects</h2>
         <div class="grid gap-6 md:grid-cols-2">
           <ProjectCard 
-            title="Real-time Analytics Pipeline"
-            description="Built a system to ingest and process large volumes of event data for internal analytics."
-            tech="Python, Kafka, PostgreSQL"
+            title="FridgePilot"
+            description="Full-stack app with login/register to create personalized KETO diets based on user goals, body metrics, and budget - includes recipe suggestions and price calculations."
+            tech="Node.js, MongoDB, React, Tailwind CSS, Express.js, Vite, OpenAI API"
+            link="https://github.com/theballmarcus/Fridge-Pilot"
+            logo="/logos/FridgePilot.svg"
           />
           <ProjectCard 
-            title="Custom CMS"
-            description="Developed a content platform with role-based access, WYSIWYG editing, and version control."
-            tech="Node.js, MongoDB, React"
+            title="Scom - Updated Version"
+            description="A C-based CLI tool for interfacing with custom-designed silicon over I2C or SPI, supporting register access and bit manipulation for embedded data storage."
+            tech="C, I2C, SPI"
           />
+          
         </div>
       </section>
     </main>
