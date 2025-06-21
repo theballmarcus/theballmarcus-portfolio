@@ -1,15 +1,15 @@
 ---
-const { title, description, tech, link, logo } = Astro.props;
+const { title, description, tech, link, logo, live_link } = Astro.props;
 import CardContent from './CardContent.astro';
 ---
 
 {link ? (
   <a href={link} class="block" target="_blank" rel="noopener noreferrer">
-    <CardContent isPublic={true} logo={logo} title={title} description={description} tech={tech} />
+    <CardContent isPublic={true} logo={logo} title={title} description={description} tech={tech} live_link={live_link} />
   </a>
 ) : (
   <div class="opacity-90">
-    <CardContent isPublic={false} logo={logo} title={title} description={description} tech={tech} />
+    <CardContent isPublic={false} logo={logo} title={title} description={description} tech={tech} live_link={live_link} />
   </div>
 )}
 
