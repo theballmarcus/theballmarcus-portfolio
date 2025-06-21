@@ -1,0 +1,51 @@
+---
+const { title, year, location, description, logo, result, collab, sponsor, pictures, links} = Astro.props;
+---
+
+<div class="max-w-6xl bg-gray-200 dark:bg-gray-700 rounded-2xl justify-between px-8 py-6 cursor-pointer" onclick={`let e = document.getElementById('${title}${year}${location}'); e.hidden = !e.hidden`}>
+    <div class="grid gap-6 md:grid-cols-2 center">
+        <div>
+            {logo ? (
+                <div class="space-x-4 flex">
+                    <img class="h-16 object-contain rounded-md flex-shrink-0" src={logo} alt={`${title} logo`} />
+                    <div>
+                        <h1 class="text-2xl">{title} {year}, {location} </h1>
+                        {sponsor && (
+                            <h3 class="dark:text-gray-400">Sponsored by <strong class="text-gray-700 dark:text-gray-300">{sponsor}</strong></h3>
+                        )} 
+                    </div>
+                </div>
+            ) : (
+                <div>
+                    <h1 class="text-2xl">{title} {year}, {location} </h1>
+                    {sponsor && (
+                        <h3 class="dark:text-gray-400">Sponsored by <strong class="text-gray-700 dark:text-gray-300">{sponsor}</strong></h3>
+                    )}
+                </div>
+            )}
+
+        </div>
+        <div>
+            {result && (
+                <h1>Result: <strong>{result}</strong> </h1>
+            )}
+            {collab ? ( <h1>Participation with <strong>{collab}</strong></h1>) : (<h1>Individual participation</h1>)}
+        </div>
+
+    </div>
+    <div>
+        <!-- Pictures scroll -->
+    </div>
+    <div hidden id=`${title}${year}${location}` class="text-center mt-4">
+        {description}
+        {links !== undefined && ( // [TODO: Make a for loop here]
+            <div class="grid md:grid-cols-2">
+                <a href={links[0]}>{links[0]}</a>
+                <a href={links[0]}>{links[0]}</a>
+            </div>
+        )}
+    </div>
+    <div>
+
+    </div>
+</div>

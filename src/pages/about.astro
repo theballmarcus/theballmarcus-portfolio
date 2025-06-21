@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import EventBlock from '../components/event_block.astro';
 ---
 
 <html lang="en">
@@ -11,14 +12,36 @@ import Header from '../components/Header.astro';
   <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-sans">
     <Header />
 
-    <main class="max-w-3xl mx-auto px-4 py-10">
+    <main class="max-w-6xl mx-auto px-4 py-10">
       <h1 class="text-3xl font-bold mb-4">About Me</h1>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-4">
-        I'm a high school student with a deep passion for software development. I've been coding professionally for over five years, building projects that range from backend APIs to full‑stack platforms.
+        I'm a high school student with a deep passion for <strong>software development and cyber security</strong>. I've been coding professionally for over five years, building projects that range from backend APIs to full‑stack platforms and has been participating in the <strong>National Cyber Security contest (DDC)</strong> every year. In 2025 I got a 2. place in the Junior final.[TODO: Add emoji here]]
       </p>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-        I'm fluent in multiple languages including C, Golang, C++, JavaScript, and Python. I enjoy solving problems, automating tasks, and continuously learning new technologies.
+        I'm fluent in multiple languages including [TODO: MAKE THIS EMBEDDED] C, Golang, C++, JavaScript, and Python. I enjoy solving problems, building applications, automating tasks, and continuously learning new technologies.
       </p>
+      <br>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+        <strong>Click the boxes below to see details and pictures of the events.</strong>
+      </p>
+      <br>
+      <h1 class="text-3xl font-bold mb-4">Upcomming events</h1>
+      <ul class="space-y-3 mb-12">
+        <li><EventBlock title="European Cybersecurity Contest" year="2025" location="Poland" result="To be determined" collab="Nation team of Denmark" description="ECSC is a yearly Eurpean Cyber Championship where european countries can pick teams of 10 members that will compete in a red-style CTF and Attack/Defense competitions. Over a couple of days, the teams will then fight to obtain flags by solving challenges and breaking into servers that the organizers have made ready." sponsor="DDC"/></li>
+        <li><EventBlock title="Dream Camp" year="2025" location="Estonia" collab="Nation team of Denmark" description="Dream Camp in estonia is almost a full week in a learning enviroment. The goal of the camp is to broaden the participants cybersecurity skill-sets." sponsor="DDC" /></li>
+        <li><EventBlock title="International Cyber Olympiad" year="2025" location="Singapore" result="To be determined" sponsor="JNData" description="The first International Cyber Olympiad will be held in the end of June in 2025. Countries have the opportunity to send 4 participants and 2 trainers to compete." links={["https://exmaple.com", "https://exmaple1.com"]} /></li>
+      </ul>
+      <h1 class="text-3xl font-bold mb-4">Former events</h1>
+      <ul class="space-y-3">
+        <li><EventBlock title="DDC Bootcamp" year="2025" location="Confidential" result="Got picked for ECSC" description="The bootcamp is a full weekend with cooperation tasks, CTF competitions and networking. After the bootcamp, the organizers pick 10 for the Danish ECSC team." sponsor="Forsvarets Efterretningstjeneste"/></li>
+        <li><EventBlock title="DDC" year="2025" location="Copenhagen" result="2. Place in Junior Catogory" description="'De Danske Cybermesterskaber' is held every year. It consists of different 3 competitions. First there's Qualifying, where you have to solve 5 challenges to continue to Regionals. Then there's Regionals, where you have to be top 100 to continue to the Finale. Then there's the Finale, where 25 people are hand-picked for continuting to the bootcamp."/></li>
+        <li><EventBlock title="HackADay (Speed Talk)" year="2025" location="Berlin" collab="Jorgen Kragh Jacobsen" sponsor="Jorgen Kragh Jacobsen"  logo="/logos/icworks_logo.jpeg" description="HackADay is a yearly conference held in Germany, where hardware enthusiasts can network, share contraptions and listen to talks. I held a speed talk here where I showed ICView - a project funded by IC Works and programmed by me. "/></li>
+        <li><EventBlock title="Swedish CTF" year="2024" location="Stockholm" collab="3 man team" sponsor="DDC" result="4. Place"/></li>
+        <li><EventBlock title="DDC" year="2024" location="Copenhagen" result="Made it to finale, but went to CTF in Sweden instead."/></li>
+        <li><EventBlock title="DDC" year="2023" location="Copenhagen" result="Made it to finale"/></li>
+        <li><EventBlock title="DDC" year="2022" location="Copenhagen" result="Made it to finale"/></li>
+        <li><EventBlock title="DDC" year="2021" location="Copenhagen" result="Made it to finale"/></li>
+      </ul>
     </main>
   </body>
 </html>
