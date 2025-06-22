@@ -1,5 +1,5 @@
 ---
-const { title, year, location, description, logo, result, collab, sponsor, pictures, links} = Astro.props;
+const { title, year, location, description, logo, result, collab, sponsor, pictures, links, numPictures} = Astro.props;
 ---
 
 <div class="max-w-6xl bg-gray-200 dark:bg-gray-700 rounded-2xl justify-between px-8 py-6 cursor-pointer" onclick={`let e = document.getElementById('${title}${year}${location}'); e.hidden = !e.hidden`}>
@@ -32,16 +32,31 @@ const { title, year, location, description, logo, result, collab, sponsor, pictu
             {collab ? ( <h1>Participation with <strong>{collab}</strong></h1>) : (<h1>Individual participation</h1>)}
         </div>
 
-    </div>
-    <div>
-        <!-- Pictures scroll -->
-    </div>
+    </div>        
     <div hidden id=`${title}${year}${location}` class="text-center mt-4">
+        {numPictures && (
+        <div class="flex justify-center mt-6">
+            <div class="w-full overflow-x-auto">
+            <div class="flex space-x-4 px-2 py-4 w-max">
+                {[...Array(Number(numPictures))].map((_, i) => (
+                <img 
+                    key={i}
+                    class="h-64 w-auto rounded-xl object-cover flex-shrink-0" 
+                    src={`/pictures/${year}/${title}_${location}/${i + 1}.jpeg`} 
+                    alt={`Picture ${i + 1}`} 
+                />
+                ))}
+            </div>
+            </div>
+        </div>
+        )}
+
         {description}
-        {links !== undefined && ( // [TODO: Make a for loop here]
+        {links !== undefined && ( 
             <div class="grid md:grid-cols-2">
-                <a href={links[0]}>{links[0]}</a>
-                <a href={links[0]}>{links[0]}</a>
+                {links.map(link => (
+                    <a href={link}>{link}</a>
+                ))}
             </div>
         )}
     </div>
